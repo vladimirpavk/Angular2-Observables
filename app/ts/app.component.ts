@@ -2,7 +2,19 @@
 import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'my-app',
-  templateUrl: './app/ts/app.component.html'
+  template: `
+        <label>Input item: </label>
+        <input id="item" #itemTlv/>
+        <button (click)="onClick(itemTlv.value)">Add to cart</button>
+        <cart></cart>        
+  `
 })
 export class AppComponent{
+
+  private items:Array<string>;
+
+  private onClick(value):void{
+    this.items.push(value);
+  }
+
 }
